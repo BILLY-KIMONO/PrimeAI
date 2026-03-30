@@ -74,12 +74,10 @@ def get_plan_pricing(plan_type: str, currency: str = "USD") -> dict:
     """Get pricing for plan type"""
     if currency == "KES":
         pricing = {
-            "daily": {"amount": 600, "currency": "KES", "duration_days": 1},  # ~$5
-            "monthly": {"amount": 8400, "currency": "KES", "duration_days": 30}  # ~$70, promo
+            "monthly": {"amount": 1000, "currency": "KES", "duration_days": 30}  # $8 USD equivalent
         }
     else:  # USD
         pricing = {
-            "daily": {"amount": 5.0, "currency": "USD", "duration_days": 1},
             "monthly": {"amount": 8.0, "currency": "USD", "duration_days": 30}
         }
     

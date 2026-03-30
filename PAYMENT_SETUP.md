@@ -73,7 +73,7 @@ curl -X POST http://localhost:8000/api/payments/mpesa/initiate \
   -d '{
     "phone_number": "+254758415360",
     "plan_type": "monthly",
-    "amount": 8400
+    "amount": 1000
   }'
 ```
 
@@ -177,7 +177,7 @@ Authorization: Bearer {token}
 {
   "phone_number": "+254758415360",
   "plan_type": "monthly",
-  "amount": 8400
+  "amount": 1000
 }
 ```
 
@@ -188,7 +188,7 @@ Response:
   "payment_id": 2,
   "checkout_request_id": "ws_CO_DMZ_...",
   "message": "Check your phone for M-Pesa prompt",
-  "amount": 8400,
+  "amount": 1000,
   "currency": "KES"
 }
 ```
@@ -204,7 +204,7 @@ Response:
 {
   "payment_id": 2,
   "status": "completed",
-  "amount": 8400,
+  "amount": 1000,
   "currency": "KES",
   "created_at": "2026-03-30T10:30:00"
 }
@@ -221,12 +221,10 @@ Response:
 ```json
 {
   "paypal": {
-    "daily": {"amount": 5.0, "currency": "USD"},
     "monthly": {"amount": 8.0, "currency": "USD"}
   },
   "mpesa": {
-    "daily": {"amount": 600, "currency": "KES"},
-    "monthly": {"amount": 8400, "currency": "KES"}
+    "monthly": {"amount": 1000, "currency": "KES"}
   }
 }
 ```
@@ -240,12 +238,10 @@ Authorization: Bearer {token}
 ## Pricing Structure
 
 ### PayPal (USD)
-- **Daily**: $5.00 (1 day access)
-- **Monthly**: $8.00 (30 days access, with 100 API calls/month for daily, 1000 for monthly)
+- **Monthly**: $8.00 (30 days access, 1000 API calls/month)
 
 ### M-Pesa (KES)
-- **Daily**: KES 600 (~$5 USD)
-- **Monthly**: KES 8,400 (~$70 USD, promotional pricing)
+- **Monthly**: KES 1,000 (~$8 USD)
 
 ## Testing Payment Methods
 
@@ -282,7 +278,7 @@ Authorization: Bearer {token_from_step_2}
 {
   "phone_number": "+254758415360",
   "plan_type": "monthly",
-  "amount": 8400
+  "amount": 1000
 }
 
 # 4. Check payment status

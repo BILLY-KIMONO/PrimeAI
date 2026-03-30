@@ -72,7 +72,7 @@ curl -X POST http://localhost:8000/api/payments/mpesa/initiate \
   -d '{
     "phone_number": "+254758415360",
     "plan_type": "monthly",
-    "amount": 8400
+    "amount": 1000
   }'
 ```
 
@@ -100,13 +100,11 @@ Your payment system is now configured with:
 
 **PayPal (USD):**
 - Email: billykimono@gmail.com
-- Daily: $5.00
 - Monthly: $8.00
 
 **M-Pesa (KES):**
 - Phone: +254758415360
-- Daily: KES 600
-- Monthly: KES 8,400
+- Monthly: KES 1,000
 
 ## 📕 Complete Documentation
 
