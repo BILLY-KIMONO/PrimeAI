@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeAI Interview Shield</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      width: 350px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+    }
+
+    .container {
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 8px;
+    }
+
+    .logo {
+      font-size: 20px;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .status {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+
+    .status-active {
+      background: #10b981;
+      color: white;
+    }
+
+    .status-inactive {
+      background: #ef4444;
+      color: white;
+    }
+
+    .status-text {
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .profiles {
+      margin-bottom: 12px;
+    }
+
+    .profile-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .profile-item {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 12px;
+      border: 2px solid transparent;
+    }
+
+    .profile-item:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .profile-item.active {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: #fff;
+    }
+
+    .profile-name {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .profile-settings {
+      font-size: 11px;
+      opacity: 0.8;
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    button {
+      flex: 1;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 12px;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #667eea;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer {
+      font-size: 11px;
+      text-align: center;
+      opacity: 0.8;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .loading {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: #fff;
+      animation: pulse 1.5s infinite;
+      margin-right: 4px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    .warning {
+      background: #fbbf24;
+      color: #78350f;
+      padding: 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      margin-bottom: 12px;
+    }
+
+    .interview-badge {
+      background: #ef4444;
+      padding: 6px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">🛡️</div>
+      <div class="title">Interview Shield</div>
+    </div>
+
+    <div id="status" class="status">
+      <span class="status-badge status-inactive">INACTIVE</span>
+      <div class="status-text">Click a profile to activate</div>
+    </div>
+
+    <div id="warning" class="warning" style="display: none;">
+      ⚠️ Subscription expired. Renew to continue using.
+    </div>
+
+    <div id="interviewMode" class="interview-badge" style="display: none;">
+      🎬 INTERVIEW MODE ACTIVE
+    </div>
+
+    <div class="profiles">
+      <h3 style="font-size: 12px; margin-bottom: 8px; opacity: 0.9;">Profiles</h3>
+      <div id="profileList" class="profile-list">
+        <div class="profile-item">
+          <span class="loading"></span>Loading profiles...
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" onclick="openDashboard()">Dashboard</button>
+      <button class="btn-secondary" onclick="openSettings()">Settings</button>
+    </div>
+
+    <div class="footer">
+      PrimeAI v1.0.0 | Stealth Mode Active
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
