@@ -26,12 +26,13 @@ def create_app():
     )
     
     # Include routes
-    from app.routes import auth, subscriptions, devices, extension
+    from app.routes import auth, subscriptions, devices, extension, payments
     
     app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
     app.include_router(subscriptions.router, prefix="/api/subscriptions", tags=["subscriptions"])
     app.include_router(devices.router, prefix="/api/devices", tags=["devices"])
     app.include_router(extension.router, prefix="/api/extension", tags=["extension"])
+    app.include_router(payments.router, prefix="/api/payments", tags=["payments"])
     
     @app.get("/health")
     def health():

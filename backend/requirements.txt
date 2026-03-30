@@ -16,3 +16,5 @@ python-multipart==0.0.6
 cryptography==41.0.7
 httpx==0.25.2
 APScheduler==3.10.4
+requests==2.31.0
+paypalrestsdk==1.13.1

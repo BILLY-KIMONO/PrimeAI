@@ -1,0 +1,21 @@
+🔑 YOUR SSH PUBLIC KEY (Add to GitHub in 30 seconds)
+════════════════════════════════════════════════════════════
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIADS/u/qHcg9kHzOYTR5Eu0rm8Ik22USfbPQzUHSSx8y bill-fardan@bill-fardan-Latitude-5400
+
+STEPS:
+──────
+
+1. Go to: https://github.com/settings/keys
+   (or: GitHub Settings → SSH and GPG keys → New SSH key)
+
+2. Paste the key above into the "Key" field
+
+3. Name it: "PrimeAI-Server"
+
+4. Click "Add SSH key"
+
+5. Come back here and press ENTER
+
+Once done, run:
+  cd /home/bill-fardan/PrimeAI && bash push-ssh.sh

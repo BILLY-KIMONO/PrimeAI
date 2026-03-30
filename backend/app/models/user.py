@@ -17,6 +17,7 @@ class User(Base, TimestampMixin):
     # Relationships
     subscriptions = relationship("Subscription", back_populates="user", cascade="all, delete-orphan")
     device_profiles = relationship("DeviceProfile", back_populates="user", cascade="all, delete-orphan")
+    payments = relationship("Payment", back_populates="user", cascade="all, delete-orphan")
     
     class Config:
         from_attributes = True
